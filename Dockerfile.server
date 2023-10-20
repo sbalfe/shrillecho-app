@@ -1,0 +1,17 @@
+# Use an official Python runtime as the base image
+FROM python:3.9-slim
+
+# Set the working directory in the container to /app
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY ./server /app
+
+# Install the dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Set environment variable to avoid some common issues
+ENV FLASK_RUN_HOST=0.0.0.0
+
+# Use Gunicorn as the entry point
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

@@ -33,8 +33,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>Documentation</h2>
-          <p>Find in-depth information about Next.js features and API.</p>
+          <h2>poo</h2>
+          <p>POO</p>
         </a>
 
         <a
@@ -43,8 +43,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>Learn</h2>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <h2>POO</h2>
+          <p>POO</p>
         </a>
 
         <a
@@ -53,8 +53,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>Templates</h2>
-          <p>Explore the Next.js 13 playground.</p>
+          <h2>POO</h2>
+          <p>POO</p>
         </a>
 
         <a
@@ -63,8 +63,8 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <h2>Deploy</h2>
-          <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
+          <h2>POO</h2>
+          <p>POO</p>
         </a>
       </div>
     </main>
