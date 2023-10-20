@@ -14,4 +14,6 @@ git add .
 # Commit with the provided commit message
 git commit -m $CommitMessage
 
+git push
+
 Write-Host "Changes committed with message: $CommitMessage"
