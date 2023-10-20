@@ -60,7 +60,7 @@ build/
 docs/_build/
 .vscode
 
-.ps1
+qp.ps1
 
 # Coverage reports
 htmlcov/
