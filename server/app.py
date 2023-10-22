@@ -1,11 +1,23 @@
-from flask import Flask
+from flask import Flask, request, jsonify
+from graphene import ObjectType, String, Schema
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return "Hello, Flask App!"
+# Define a simple GraphQL schema
+class Query(ObjectType):
+    hello = String()
 
-@app.route('/home')
-def home():
-    return "Make Yourself at Home"
+    def resolve_hello(self, info):
+        return "Hello, GraphQL!"
+
+schema = Schema(query=Query)
+
+@app.route('/graphql', methods=['POST'])
+def graphql_server():
+    print("hit")
+    data = request.get_json()
+    result = schema.execute(data.get('query'))
+    print(result)
+
+    return jsonify(result.data)
+

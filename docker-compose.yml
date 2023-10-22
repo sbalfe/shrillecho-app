@@ -8,9 +8,10 @@ services:
     container_name: flask_server
     volumes:
       - ./server:/app
+    ports:
+      - "5000:5000"
     expose:
       - 5000
-
   nginx:
     build:
       context: .

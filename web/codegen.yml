@@ -1,0 +1,7 @@
+schema: https://api.shrillecho.app/graphql
+generates:
+  path/to/queries.ts:
+    documents: ./src/lib/graphql
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
