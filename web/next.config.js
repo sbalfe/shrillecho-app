@@ -3,18 +3,30 @@ const nextConfig = {
     /* config options here */
 }
 
-// next.config.js
+// module.exports = {
+//     reactStrictMode: true,
+//     swcMinify: true,
+//     // webpack: (config, context) => {
+//     //     if (process.env.NEXT_WEBPACK_USEPOLLING) {
+//     //         config.watchOptions = {
+//     //             poll: 500,
+//     //             aggregateTimeout: 300
+//     //         }
+//     //     }
+//     //     return config
+//     // },
+// }
+
+
 module.exports = {
-    reactStrictMode: true,
-    swcMinify: true,
-    webpack: (config, context) => {
-        // Enable polling based on env variable being set
-        if (process.env.NEXT_WEBPACK_USEPOLLING) {
-            config.watchOptions = {
-                poll: 500,
-                aggregateTimeout: 300
-            }
-        }
-        return config
-    },
-}
+
+
+    // swcMinify: true,
+    // webpackDevMiddleware: config => {
+    //     config.watchOptions = {
+    //         poll: 500,
+    //         aggregateTimeout: 300,
+    //     };
+    //     return config;
+    // },
+};

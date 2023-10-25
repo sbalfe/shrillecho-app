@@ -1,23 +1,37 @@
-from flask import Flask, request, jsonify
-from graphene import ObjectType, String, Schema
+import graphene
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from starlette_graphene3 import GraphQLApp, make_graphiql_handler
 
-app = Flask(__name__)
+class Track(graphene.ObjectType):
+    name = graphene.String()
+    artist = graphene.String()
+    streams = graphene.Int()
 
-# Define a simple GraphQL schema
-class Query(ObjectType):
-    hello = String()
+class Query(graphene.ObjectType):
+    track = graphene.Field(Track)
+    def resolve_track(self, info):
+        return Track('sonder', 'test', 54)        
 
-    def resolve_hello(self, info):
-        return "Hello, GraphQL!"
+schema = graphene.Schema(query=Query)
 
-schema = Schema(query=Query)
+app = FastAPI()
 
-@app.route('/graphql', methods=['POST'])
-def graphql_server():
-    print("hit")
-    data = request.get_json()
-    result = schema.execute(data.get('query'))
-    print(result)
 
-    return jsonify(result.data)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"]
+)
+
+
+app.mount("/graphql", GraphQLApp(schema, on_get=make_graphiql_handler()))
+
+
+
+
+
+
+
+
 

@@ -60,6 +60,8 @@ build/
 docs/_build/
 .vscode
 
+restart_docker.ps1
+
 qp.ps1
 
 # Coverage reports

@@ -10,12 +10,14 @@ import {borders} from './foundations/borders'
 // // Component style overrides
 import {Button} from './components/button'
 
-export const overrideTheme = extendTheme({
+import {fonts} from './fonts/fonts'
+
+export const indexTheme = extendTheme({
 
     /* Foundational overrides*/
     styles,
     borders,
-
+    fonts: fonts,
     /* Component overrides */
     components: {
         Button

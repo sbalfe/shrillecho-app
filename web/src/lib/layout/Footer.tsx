@@ -1,14 +1,12 @@
-import { Flex, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Link, Spacer, Text } from '@chakra-ui/react';
 
 const Footer = () => {
     return (
-        <Flex as="footer" width="full" justifyContent="center">
-            <Text fontSize="sm">
-                {new Date().getFullYear()} -{' '}
-                <Link href="https://sznm.dev" isExternal rel="noopener noreferrer">
-                    sznm.dev
-                </Link>
-            </Text>
+        <Flex minWidth='max-content' alignItems='center' gap='2'>
+            <Box p='2'>
+                <Heading size='sm'>Based Music Tool</Heading>
+            </Box>
+            <Spacer />
         </Flex>
     );
 };

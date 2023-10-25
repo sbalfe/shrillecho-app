@@ -1,4 +1,3 @@
-
 import Layout from "~/lib/layout";
 import { Providers } from "~/lib/providers";
 
@@ -8,10 +7,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="jb">
       <body>
         <Providers>
-          <Layout>{children}</Layout>
+          {children}
+          {/* <Layout>{children}</Layout> */}
         </Providers>
       </body>
     </html>

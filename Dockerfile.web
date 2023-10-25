@@ -12,5 +12,9 @@ COPY ./web/ ./
 
 EXPOSE 3000
 
+ENV CHOKIDAR_USEPOLLING=true
+ENV NODE_ENV=development
+ENV WATCHPACK_POLLING=true
+
 CMD ["yarn","run", "dev"]
 # CMD ["yarn", "start"]

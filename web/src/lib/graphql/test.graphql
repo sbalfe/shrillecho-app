@@ -1,0 +1,6 @@
+query Track {
+    track {
+        artist
+        name
+    }
+}

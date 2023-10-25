@@ -1,20 +1,18 @@
 'use client'
-import { ChakraProvider, ThemeProvider, CSSReset } from "@chakra-ui/react";
+import { ChakraProvider,  CSSReset } from "@chakra-ui/react";
 import { CacheProvider } from "@chakra-ui/next-js";
-import { extendTheme } from "@chakra-ui/react";
+import {ReactNode} from 'react'
 
-export function Providers({
-    children,
-    theme, // Add a theme prop
-}: {
-    children: React.ReactNode;
-    theme?: any; // Define the type of the theme prop
-}) {
-  
 
+interface ProvidersProps {
+    children: ReactNode;
+    theme?: any; 
+}
+
+export function Providers({ children, theme }: ProvidersProps) {
     return (
         <CacheProvider>
-            <ChakraProvider theme={theme}> {/* Pass the custom theme */}
+            <ChakraProvider theme={theme}>
                 {children}
             </ChakraProvider>
         </CacheProvider>

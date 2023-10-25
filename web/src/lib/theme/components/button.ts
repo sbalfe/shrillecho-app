@@ -1,5 +1,6 @@
 import { ComponentStyleConfig } from "@chakra-ui/react";
 import { defineStyleConfig } from '@chakra-ui/react'
+import {fonts} from '~/lib/theme/fonts/fonts'
 
 export const Button = defineStyleConfig({
     // The styles all button have in common
@@ -26,16 +27,16 @@ export const Button = defineStyleConfig({
         outline: {
             border: '2px solid',
             borderColor: 'purple.500',
-            color: 'purple.500',
+            color: 'black.200',
         },
         solid: {
             bg: 'purple.500',
-            color: 'white',
+            color: 'white'
         },
     },
     // The default size and variant values
     defaultProps: {
-        size: 'md',
-        variant: 'outline',
+        size: 'sm',
+        variant: 'solid',
     },
 })
