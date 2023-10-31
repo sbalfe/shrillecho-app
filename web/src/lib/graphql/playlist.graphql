@@ -1,0 +1,13 @@
+query Playlist {
+   playlist {
+  	tracks {
+      items {
+        track {
+          externalIds{
+            isrc
+          }
+        }
+      }
+    }
+  }
+}

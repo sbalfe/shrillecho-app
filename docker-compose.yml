@@ -11,7 +11,7 @@ services:
     ports:
       - "8000:8000"
     expose:
-      - 5000
+      - 8000
   nginx:
     build:
       context: .
@@ -22,14 +22,14 @@ services:
       - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-  # next_web:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.web
-  #   volumes:
-  #     - ./web:/app
-  #     - /app/node_modules
-  #     - /app/.next
-  #   container_name: next_web
-  #   expose:
-  #     - 3000
+  next_web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+      - /app/.next
+    container_name: next_web
+    expose:
+      - 3000

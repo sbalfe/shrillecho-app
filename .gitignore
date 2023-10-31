@@ -76,14 +76,19 @@ htmlcov/
 /node_modules
 /.pnp
 .pnp.js
+.cache 
+server/cache/
+command.txt
 
 # testing
 /coverage
 
+/cache
+
 # next.js
 /.next/
 /out/
-
+test.py
 # production
 /build
 

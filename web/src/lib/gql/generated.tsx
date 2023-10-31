@@ -17,61 +17,257 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type AddedBy = {
+  __typename?: 'AddedBy';
+  externalUrls?: Maybe<ExternalUrls>;
+  followers?: Maybe<Followers>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+export type Album = {
+  __typename?: 'Album';
+  albumType?: Maybe<Scalars['String']['output']>;
+  artists?: Maybe<Array<Maybe<Artist>>>;
+  availableMarkets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  copyrights?: Maybe<Array<Maybe<Copyright>>>;
+  externalIds?: Maybe<ExternalIds>;
+  externalUrls?: Maybe<ExternalUrls>;
+  genres?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  images?: Maybe<Array<Maybe<Image>>>;
+  label?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  popularity?: Maybe<Scalars['Int']['output']>;
+  releaseDate?: Maybe<Scalars['String']['output']>;
+  releaseDatePrecision?: Maybe<Scalars['String']['output']>;
+  restrictions?: Maybe<Restrictions>;
+  totalTracks?: Maybe<Scalars['Int']['output']>;
+  tracks?: Maybe<AlbumTracks>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+export type AlbumTracks = {
+  __typename?: 'AlbumTracks';
+  href?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<SimplifiedTrack>>>;
+  limit?: Maybe<Scalars['Int']['output']>;
+  next?: Maybe<Scalars['String']['output']>;
+  offset?: Maybe<Scalars['Int']['output']>;
+  previous?: Maybe<Scalars['String']['output']>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+export type Artist = {
+  __typename?: 'Artist';
+  externalUrls?: Maybe<ExternalUrls>;
+  followers?: Maybe<Followers>;
+  genres?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  images?: Maybe<Array<Maybe<Image>>>;
+  name?: Maybe<Scalars['String']['output']>;
+  popularity?: Maybe<Scalars['Int']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+export type Copyright = {
+  __typename?: 'Copyright';
+  text?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+};
+
+export type ExternalIds = {
+  __typename?: 'ExternalIds';
+  ean?: Maybe<Scalars['String']['output']>;
+  isrc?: Maybe<Scalars['String']['output']>;
+  upc?: Maybe<Scalars['String']['output']>;
+};
+
+export type ExternalUrls = {
+  __typename?: 'ExternalUrls';
+  spotify?: Maybe<Scalars['String']['output']>;
+};
+
+export type Followers = {
+  __typename?: 'Followers';
+  href?: Maybe<Scalars['String']['output']>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
+export type Image = {
+  __typename?: 'Image';
+  height?: Maybe<Scalars['Int']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
+  width?: Maybe<Scalars['Int']['output']>;
+};
+
+export type LinkedFrom = {
+  __typename?: 'LinkedFrom';
+  externalUrls?: Maybe<ExternalUrls>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+export type Owner = {
+  __typename?: 'Owner';
+  displayName?: Maybe<Scalars['String']['output']>;
+  externalUrls?: Maybe<ExternalUrls>;
+  followers?: Maybe<Followers>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+export type Playlist = {
+  __typename?: 'Playlist';
+  collaborative?: Maybe<Scalars['Boolean']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  externalUrls?: Maybe<ExternalUrls>;
+  followers?: Maybe<Followers>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  images?: Maybe<Array<Maybe<Image>>>;
+  name?: Maybe<Scalars['String']['output']>;
+  owner?: Maybe<Owner>;
+  public?: Maybe<Scalars['Boolean']['output']>;
+  snapshotId?: Maybe<Scalars['String']['output']>;
+  tracks?: Maybe<PlaylistTracks>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+export type PlaylistTrack = {
+  __typename?: 'PlaylistTrack';
+  addedAt?: Maybe<Scalars['String']['output']>;
+  addedBy?: Maybe<AddedBy>;
+  isLocal?: Maybe<Scalars['Boolean']['output']>;
+  track?: Maybe<Track>;
+};
+
+export type PlaylistTracks = {
+  __typename?: 'PlaylistTracks';
+  href?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<PlaylistTrack>>>;
+  limit?: Maybe<Scalars['Int']['output']>;
+  next?: Maybe<Scalars['String']['output']>;
+  offset?: Maybe<Scalars['Int']['output']>;
+  previous?: Maybe<Scalars['String']['output']>;
+  total?: Maybe<Scalars['Int']['output']>;
+};
+
 export type Query = {
   __typename?: 'Query';
-  track?: Maybe<Track>;
+  playlist?: Maybe<Playlist>;
+};
+
+export type Restrictions = {
+  __typename?: 'Restrictions';
+  reason?: Maybe<Scalars['String']['output']>;
+};
+
+export type SimplifiedTrack = {
+  __typename?: 'SimplifiedTrack';
+  artists?: Maybe<Array<Maybe<Artist>>>;
+  availableMarkets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  discNumber?: Maybe<Scalars['Int']['output']>;
+  durationMs?: Maybe<Scalars['Int']['output']>;
+  explicit?: Maybe<Scalars['Boolean']['output']>;
+  externalUrls?: Maybe<ExternalUrls>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  isLocal?: Maybe<Scalars['Boolean']['output']>;
+  isPlayable?: Maybe<Scalars['Boolean']['output']>;
+  linkedFrom?: Maybe<LinkedFrom>;
+  name?: Maybe<Scalars['String']['output']>;
+  previewUrl?: Maybe<Scalars['String']['output']>;
+  restrictions?: Maybe<Restrictions>;
+  trackNumber?: Maybe<Scalars['Int']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
 };
 
 export type Track = {
   __typename?: 'Track';
-  artist?: Maybe<Scalars['String']['output']>;
+  album?: Maybe<Album>;
+  artists?: Maybe<Array<Maybe<Artist>>>;
+  availableMarkets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  discNumber?: Maybe<Scalars['Int']['output']>;
+  durationMs?: Maybe<Scalars['Int']['output']>;
+  explicit?: Maybe<Scalars['Boolean']['output']>;
+  externalIds?: Maybe<ExternalIds>;
+  externalUrls?: Maybe<ExternalUrls>;
+  href?: Maybe<Scalars['String']['output']>;
+  id?: Maybe<Scalars['String']['output']>;
+  isLocal?: Maybe<Scalars['Boolean']['output']>;
+  isPlayable?: Maybe<Scalars['Boolean']['output']>;
+  linkedFrom?: Maybe<LinkedFrom>;
   name?: Maybe<Scalars['String']['output']>;
-  streams?: Maybe<Scalars['Int']['output']>;
+  previewUrl?: Maybe<Scalars['String']['output']>;
+  restrictions?: Maybe<Restrictions>;
+  trackNumber?: Maybe<Scalars['Int']['output']>;
+  type?: Maybe<Scalars['String']['output']>;
+  uri?: Maybe<Scalars['String']['output']>;
 };
 
-export type TrackQueryVariables = Exact<{ [key: string]: never; }>;
+export type PlaylistQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TrackQuery = { __typename?: 'Query', track?: { __typename?: 'Track', artist?: string | null, name?: string | null } | null };
+export type PlaylistQuery = { __typename?: 'Query', playlist?: { __typename?: 'Playlist', tracks?: { __typename?: 'PlaylistTracks', items?: Array<{ __typename?: 'PlaylistTrack', track?: { __typename?: 'Track', externalIds?: { __typename?: 'ExternalIds', isrc?: string | null } | null } | null } | null> | null } | null } | null };
 
 
-export const TrackDocument = gql`
-    query Track {
-  track {
-    artist
-    name
+export const PlaylistDocument = gql`
+    query Playlist {
+  playlist {
+    tracks {
+      items {
+        track {
+          externalIds {
+            isrc
+          }
+        }
+      }
+    }
   }
 }
     `;
 
 /**
- * __useTrackQuery__
+ * __usePlaylistQuery__
  *
- * To run a query within a React component, call `useTrackQuery` and pass it any options that fit your needs.
- * When your component renders, `useTrackQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `usePlaylistQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePlaylistQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useTrackQuery({
+ * const { data, loading, error } = usePlaylistQuery({
  *   variables: {
  *   },
  * });
  */
-export function useTrackQuery(baseOptions?: Apollo.QueryHookOptions<TrackQuery, TrackQueryVariables>) {
+export function usePlaylistQuery(baseOptions?: Apollo.QueryHookOptions<PlaylistQuery, PlaylistQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<TrackQuery, TrackQueryVariables>(TrackDocument, options);
+        return Apollo.useQuery<PlaylistQuery, PlaylistQueryVariables>(PlaylistDocument, options);
       }
-export function useTrackLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TrackQuery, TrackQueryVariables>) {
+export function usePlaylistLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PlaylistQuery, PlaylistQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<TrackQuery, TrackQueryVariables>(TrackDocument, options);
+          return Apollo.useLazyQuery<PlaylistQuery, PlaylistQueryVariables>(PlaylistDocument, options);
         }
-export function useTrackSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<TrackQuery, TrackQueryVariables>) {
+export function usePlaylistSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<PlaylistQuery, PlaylistQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<TrackQuery, TrackQueryVariables>(TrackDocument, options);
+          return Apollo.useSuspenseQuery<PlaylistQuery, PlaylistQueryVariables>(PlaylistDocument, options);
         }
-export type TrackQueryHookResult = ReturnType<typeof useTrackQuery>;
-export type TrackLazyQueryHookResult = ReturnType<typeof useTrackLazyQuery>;
-export type TrackSuspenseQueryHookResult = ReturnType<typeof useTrackSuspenseQuery>;
-export type TrackQueryResult = Apollo.QueryResult<TrackQuery, TrackQueryVariables>;
+export type PlaylistQueryHookResult = ReturnType<typeof usePlaylistQuery>;
+export type PlaylistLazyQueryHookResult = ReturnType<typeof usePlaylistLazyQuery>;
+export type PlaylistSuspenseQueryHookResult = ReturnType<typeof usePlaylistSuspenseQuery>;
+export type PlaylistQueryResult = Apollo.QueryResult<PlaylistQuery, PlaylistQueryVariables>;

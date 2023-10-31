@@ -3,12 +3,12 @@ FROM node:16
 WORKDIR /app
 
 COPY ./web/package*.json ./
-
+COPY ./web/yarn.lock ./
 RUN yarn install
 
 COPY ./web/ ./
 
-# RUN yarn run build
+RUN yarn run build
 
 EXPOSE 3000
 
@@ -16,5 +16,5 @@ ENV CHOKIDAR_USEPOLLING=true
 ENV NODE_ENV=development
 ENV WATCHPACK_POLLING=true
 
-CMD ["yarn","run", "dev"]
-# CMD ["yarn", "start"]
+# CMD ["yarn","run", "dev"]
+CMD ["yarn", "start"]

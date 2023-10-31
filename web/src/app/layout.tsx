@@ -1,3 +1,4 @@
+'use client'
 import Layout from "~/lib/layout";
 import { Providers } from "~/lib/providers";
 
@@ -9,10 +10,11 @@ export default function RootLayout({
   return (
     <html lang="jb">
       <body>
-        <Providers>
+       
+        {/* <Providers> */}
           {children}
           {/* <Layout>{children}</Layout> */}
-        </Providers>
+        {/* </Providers> */}
       </body>
     </html>
   );
