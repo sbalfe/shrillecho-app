@@ -3,9 +3,7 @@ query Playlist {
   	tracks {
       items {
         track {
-          externalIds{
-            isrc
-          }
+          ...TrackDetails
         }
       }
     }

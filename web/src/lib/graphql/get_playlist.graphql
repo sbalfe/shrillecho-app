@@ -1,0 +1,5 @@
+query getPlaylist($plID: ComplexInput!) {
+    playlist(id: $plID){
+        name
+    }
+}

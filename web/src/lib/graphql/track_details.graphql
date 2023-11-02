@@ -1,0 +1,5 @@
+fragment TrackDetails on Track {
+    name
+    uri
+    type
+}

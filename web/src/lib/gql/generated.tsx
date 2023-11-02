@@ -76,6 +76,12 @@ export type Artist = {
   uri?: Maybe<Scalars['String']['output']>;
 };
 
+export type ComplexInput = {
+  field1?: InputMaybe<Scalars['String']['input']>;
+  field2?: InputMaybe<Scalars['Int']['input']>;
+  field3?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 export type Copyright = {
   __typename?: 'Copyright';
   text?: Maybe<Scalars['String']['output']>;
@@ -169,6 +175,11 @@ export type Query = {
   playlist?: Maybe<Playlist>;
 };
 
+
+export type QueryPlaylistArgs = {
+  id?: InputMaybe<ComplexInput>;
+};
+
 export type Restrictions = {
   __typename?: 'Restrictions';
   reason?: Maybe<Scalars['String']['output']>;
@@ -218,27 +229,80 @@ export type Track = {
   uri?: Maybe<Scalars['String']['output']>;
 };
 
+export type GetPlaylistQueryVariables = Exact<{
+  plID: ComplexInput;
+}>;
+
+
+export type GetPlaylistQuery = { __typename?: 'Query', playlist?: { __typename?: 'Playlist', name?: string | null } | null };
+
 export type PlaylistQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PlaylistQuery = { __typename?: 'Query', playlist?: { __typename?: 'Playlist', tracks?: { __typename?: 'PlaylistTracks', items?: Array<{ __typename?: 'PlaylistTrack', track?: { __typename?: 'Track', externalIds?: { __typename?: 'ExternalIds', isrc?: string | null } | null } | null } | null> | null } | null } | null };
+export type PlaylistQuery = { __typename?: 'Query', playlist?: { __typename?: 'Playlist', tracks?: { __typename?: 'PlaylistTracks', items?: Array<{ __typename?: 'PlaylistTrack', track?: { __typename?: 'Track', name?: string | null, uri?: string | null, type?: string | null } | null } | null> | null } | null } | null };
 
+export type TrackDetailsFragment = { __typename?: 'Track', name?: string | null, uri?: string | null, type?: string | null };
 
+export const TrackDetailsFragmentDoc = gql`
+    fragment TrackDetails on Track {
+  name
+  uri
+  type
+}
+    `;
+export const GetPlaylistDocument = gql`
+    query getPlaylist($plID: ComplexInput!) {
+  playlist(id: $plID) {
+    name
+  }
+}
+    `;
+
+/**
+ * __useGetPlaylistQuery__
+ *
+ * To run a query within a React component, call `useGetPlaylistQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPlaylistQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPlaylistQuery({
+ *   variables: {
+ *      plID: // value for 'plID'
+ *   },
+ * });
+ */
+export function useGetPlaylistQuery(baseOptions: Apollo.QueryHookOptions<GetPlaylistQuery, GetPlaylistQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPlaylistQuery, GetPlaylistQueryVariables>(GetPlaylistDocument, options);
+      }
+export function useGetPlaylistLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPlaylistQuery, GetPlaylistQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPlaylistQuery, GetPlaylistQueryVariables>(GetPlaylistDocument, options);
+        }
+export function useGetPlaylistSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetPlaylistQuery, GetPlaylistQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetPlaylistQuery, GetPlaylistQueryVariables>(GetPlaylistDocument, options);
+        }
+export type GetPlaylistQueryHookResult = ReturnType<typeof useGetPlaylistQuery>;
+export type GetPlaylistLazyQueryHookResult = ReturnType<typeof useGetPlaylistLazyQuery>;
+export type GetPlaylistSuspenseQueryHookResult = ReturnType<typeof useGetPlaylistSuspenseQuery>;
+export type GetPlaylistQueryResult = Apollo.QueryResult<GetPlaylistQuery, GetPlaylistQueryVariables>;
 export const PlaylistDocument = gql`
     query Playlist {
   playlist {
     tracks {
       items {
         track {
-          externalIds {
-            isrc
-          }
+          ...TrackDetails
         }
       }
     }
   }
 }
-    `;
+    ${TrackDetailsFragmentDoc}`;
 
 /**
  * __usePlaylistQuery__
