@@ -13,4 +13,4 @@ RUN mkdir -p /etc/nginx/sites-enabled
 RUN ln -s /etc/nginx/sites-available/flask_site.conf /etc/nginx/sites-enabled/flask_site.conf
 RUN ln -s /etc/nginx/sites-available/next.conf /etc/nginx/sites-enabled/next.conf
 
-EXPOSE 80
+EXPOSE 443

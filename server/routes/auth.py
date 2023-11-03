@@ -20,6 +20,6 @@ async def sp_redirect(code:str, response: Response):
     token_info = sp_oauth.get_access_token(code=code)
     print("token", token_info["access_token"])
     r.set(code, json.dumps(token_info))
-    response = RedirectResponse("http://localhost:3001/")
-    response.set_cookie(key="shrillecho-id", value=code, domain="localhost")
+    response = RedirectResponse("http://shrillecho.app/")
+    response.set_cookie(key="shrillecho-id", value=code, domain="shrillecho.app")
     return response

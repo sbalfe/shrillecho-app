@@ -17,11 +17,7 @@ export const styles = {
             height: '100%',
         },
 
-        body: {
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '1', // Ensure the body takes up the full viewport height
-        },
+      
     }
 }
 

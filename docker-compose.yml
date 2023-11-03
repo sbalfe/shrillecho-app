@@ -8,10 +8,8 @@ services:
     container_name: fastapi_server
     volumes:
       - ./server:/app
-    ports:
-      - "8000:8000"
     expose:
-      - 8000
+      - 8001
   nginx:
     build:
       context: .
