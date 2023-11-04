@@ -6,4 +6,6 @@ router = APIRouter()
 
 @router.get("/me")
 def get_tracks(request: Request, sp: spotipy.Spotify = Depends(get_spotify_client)):
-    return sp.me()
+    me = sp.me()
+    print(me)
+    return  me 

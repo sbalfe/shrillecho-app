@@ -20,6 +20,7 @@ const nextConfig = {
 
 module.exports = {
 
+    reactStrictMode: false
 
     // swcMinify: true,
     // webpackDevMiddleware: config => {

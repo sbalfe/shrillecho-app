@@ -7,11 +7,14 @@ from core.database import r
 
 def get_spotify_client(request: Request) -> spotipy.Spotify:
 
-    session_id = request.cookies.get("shrillecho-id")
+    session_id = request.cookies.get("shrillecho-biscuit")
+    print("SESSION ID", session_id)
 
     if not session_id:
+       
         raise HTTPException(status_code=401, detail="Not authenticated")
     token_info = json.loads(r.get(session_id))
+    print(token_info)
     if not token_info:
         raise HTTPException(status_code=401, detail="Token not found")
     

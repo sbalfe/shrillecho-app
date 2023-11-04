@@ -1,8 +1,8 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
-
+import fast_origin from './env';
 
 const client = new ApolloClient({
-    uri: 'https://fastapi_server/graphql', 
+    uri: `${fast_origin}/graphql`, 
     cache: new InMemoryCache()
 });
 

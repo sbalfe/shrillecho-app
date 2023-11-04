@@ -7,10 +7,13 @@ COPY ./nginx/letsencrypt/live/api.shrillecho.app/fullchain1.pem /etc/letsencrypt
 COPY ./nginx/letsencrypt/live/api.shrillecho.app/privkey1.pem /etc/letsencrypt/live/api.shrillecho.app/privkey.pem
 COPY ./nginx/letsencrypt/live/shrillecho.app/fullchain1.pem /etc/letsencrypt/live/shrillecho.app/fullchain.pem
 COPY ./nginx/letsencrypt/live/shrillecho.app/privkey1.pem /etc/letsencrypt/live/shrillecho.app/privkey.pem
+COPY ./nginx/letsencrypt/live/discord.shrillecho.app/fullchain1.pem /etc/letsencrypt/live/discord.shrillecho.app/fullchain.pem
+COPY ./nginx/letsencrypt/live/discord.shrillecho.app/privkey1.pem /etc/letsencrypt/live/discord.shrillecho.app/privkey.pem
 
 RUN mkdir -p /etc/nginx/sites-enabled
 
-RUN ln -s /etc/nginx/sites-available/flask_site.conf /etc/nginx/sites-enabled/flask_site.conf
+RUN ln -s /etc/nginx/sites-available/fast_api.conf /etc/nginx/sites-enabled/fast_api.conf 
 RUN ln -s /etc/nginx/sites-available/next.conf /etc/nginx/sites-enabled/next.conf
+RUN ln -s /etc/nginx/sites-available/discord.conf /etc/nginx/sites-enabled/discord.conf
 
 EXPOSE 443

@@ -3,10 +3,17 @@ logs
 *.log
 npm-debug.log*
 
+set_
+start_local.ps1 
+restart_docker.ps1
+qp.ps1
 # Runtime data
 pids
 *.pid
 *.seed
+start_web.ps1
+
+start_server.ps1
 
 startserver.txt
 

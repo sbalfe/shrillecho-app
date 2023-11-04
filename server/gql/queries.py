@@ -6,6 +6,8 @@ import redis
 # from shrillecho.types.playlists import Playlist
 import schemas.graphene_schema as gtype
 
+class Playlist:
+    pass
 
 class Query(graphene.ObjectType):
     playlist = graphene.Field(gtype.Playlist)
